@@ -1,0 +1,33 @@
+<%- include('include/_header') %>
+
+<main id="sitem">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter"> 
+                <a href="/" class="border-shadow"><i class="fa-solid fa-backward"></i>Todos los usuarios</a>
+            </div>
+        </div>
+        <div class="formt text-center">
+            <h2 class="text1">Registro de QR</h2>
+            <span class="text3">Registra la asistencia del usuario</span>
+        </div>
+        
+        <br/>
+        <br/>
+        <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+
+        <div id="qr-reader" class="codigo" style="width: 600px"></div>
+        <script>
+            function onScanSuccess(decodedText, decodedResult) {
+                console.log(`Code scanned = ${decodedText}`, decodedResult);
+            }
+            var html5QrcodeScanner = new Html5QrcodeScanner(
+	            "qr-reader", { fps: 10, qrbox: 250 });
+            
+            html5QrcodeScanner.render(onScanSuccess);
+        </script>
+        
+    </div>
+    </main>
+
+<%- include('include/_footer') %>
